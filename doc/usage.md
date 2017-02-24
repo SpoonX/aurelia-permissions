@@ -34,7 +34,7 @@ import {Acl} from 'aurelia-acl';
 @inject(Acl)
 export class Page {
   constructor(acl) {
-    this.isAllowed = acl.isAllowed;
+    this.isAllowed = acl.isAllowed.bind(acl);
   }
 }
 
