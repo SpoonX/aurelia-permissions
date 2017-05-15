@@ -1,6 +1,5 @@
 # aurelia-permissions
 
-[![Build Status](https://travis-ci.org/SpoonX/aurelia-acl.svg?branch=master)](https://travis-ci.org/SpoonX/aurelia-acl)
 [![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg?maxAge=2592000?style=plastic)](https://gitter.im/SpoonX/Dev)
 
 > ACL for your aurelia application.
