@@ -1,9 +1,10 @@
-# aurelia-permissions
+# aurelia-acl
 
 [![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg?maxAge=2592000?style=plastic)](https://gitter.im/SpoonX/Dev)
 
 > ACL for your aurelia application.
 
+Simple and small. Set permissions, and then use the provided tools to verify them. For examples, keep reading!
 
 ## Usage
 
@@ -22,7 +23,7 @@ First configure the user permissions statically or dynamically.
 
 ```js
 userRequest.get('permissions').then(permissions => {
-  this.acl.setPermissions(actionsGroupedByModel(permissions));
+  this.acl.setPermissions(permissions);
 });
 ```
 
@@ -36,9 +37,12 @@ import {inject} from 'aurelia-framework';
 export class Chatroom {
 
   constructor(acl) {
-    // do not forget to bind to the acl instance
-    this.isAllowed = acl.isAllowed.bind(acl);
+    this.acl = acl;
     this.chatBoxIsVisible = acl.isAllowed('chat', 'read');
+  }
+  
+  isAllowed(resource, action) {
+    return this.acl.isAllowed(resource, action);
   }
 }
 ```
