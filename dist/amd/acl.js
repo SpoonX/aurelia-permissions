@@ -1,31 +1,21 @@
-define(['exports', './attribute/allowed'], function (exports, _allowed) {
+define(['exports'], function (exports) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
-  Object.defineProperty(exports, 'Allowed', {
-    enumerable: true,
-    get: function () {
-      return _allowed.Allowed;
-    }
-  });
 
   var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
     return typeof obj;
   } : function (obj) {
-    return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj;
+    return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
   };
 
-  function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
-    }
-  }
+  
 
   var Acl = exports.Acl = function () {
     function Acl() {
-      _classCallCheck(this, Acl);
+      
 
       this.permissions = {};
     }

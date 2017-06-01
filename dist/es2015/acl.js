@@ -1,5 +1,3 @@
-export { Allowed } from './attribute/allowed';
-
 export let Acl = class Acl {
   constructor() {
     this.permissions = {};

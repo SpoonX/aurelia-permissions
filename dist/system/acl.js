@@ -1,33 +1,24 @@
 'use strict';
 
-System.register(['./attribute/allowed'], function (_export, _context) {
+System.register([], function (_export, _context) {
   "use strict";
 
   var _typeof, Acl;
 
-  function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
-    }
-  }
+  
 
   return {
-    setters: [function (_attributeAllowed) {
-      var _exportObj = {};
-      _exportObj.Allowed = _attributeAllowed.Allowed;
-
-      _export(_exportObj);
-    }],
+    setters: [],
     execute: function () {
       _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
         return typeof obj;
       } : function (obj) {
-        return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj;
+        return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
       };
 
       _export('Acl', Acl = function () {
         function Acl() {
-          _classCallCheck(this, Acl);
+          
 
           this.permissions = {};
         }

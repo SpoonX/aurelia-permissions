@@ -6,17 +6,13 @@ define(['exports', 'aurelia-dependency-injection', 'aurelia-templating', 'aureli
   });
   exports.Allowed = undefined;
 
-  function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
-    }
-  }
+  
 
   var _dec, _dec2, _class;
 
   var Allowed = exports.Allowed = (_dec = (0, _aureliaTemplating.customAttribute)('allowed'), _dec2 = (0, _aureliaDependencyInjection.inject)(_aureliaPal.DOM.Element, _aureliaTemplating.Animator, _aureliaDependencyInjection.Optional.of(_aureliaPal.DOM.boundary, true), _acl.Acl), _dec(_class = _dec2(_class = function () {
     function Allowed(element, animator, domBoundary, acl) {
-      _classCallCheck(this, Allowed);
+      
 
       this.acl = acl;
       this.element = element;

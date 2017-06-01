@@ -1,12 +1,27 @@
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
+exports.Allowed = exports.Acl = exports.logger = undefined;
+
+var _dec, _dec2, _class2;
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
+exports.configure = configure;
 
+var _aureliaLogging = require('aurelia-logging');
+
+var _aureliaDependencyInjection = require('aurelia-dependency-injection');
+
+var _aureliaTemplating = require('aurelia-templating');
+
+var _aureliaPal = require('aurelia-pal');
+
+
+
+var logger = (0, _aureliaLogging.getLogger)('aurelia-acl');
+
+exports.logger = logger;
 
 var Acl = exports.Acl = function () {
   function Acl() {
@@ -79,3 +94,46 @@ var Acl = exports.Acl = function () {
 
   return Acl;
 }();
+
+function configure(aurelia, config) {
+  aurelia.globalResources('./attribute/allowed');
+
+  if (!config) {
+    return;
+  }
+
+  var acl = aurelia.container.get(Acl);
+
+  if ((typeof config === 'undefined' ? 'undefined' : _typeof(config)) === 'object') {
+    acl.setPermissions(config);
+  }
+
+  if (typeof config === 'function') {
+    config(acl);
+  }
+}
+
+var Allowed = exports.Allowed = (_dec = (0, _aureliaTemplating.customAttribute)('allowed'), _dec2 = (0, _aureliaDependencyInjection.inject)(_aureliaPal.DOM.Element, _aureliaTemplating.Animator, _aureliaDependencyInjection.Optional.of(_aureliaPal.DOM.boundary, true), Acl), _dec(_class2 = _dec2(_class2 = function () {
+  function Allowed(element, animator, domBoundary, acl) {
+    
+
+    this.acl = acl;
+    this.element = element;
+    this.animator = animator;
+    this.domBoundary = domBoundary;
+  }
+
+  Allowed.prototype.valueChanged = function valueChanged(newValue) {
+    if (this.acl.isAllowed(newValue)) {
+      this.animator.removeClass(this.element, 'aurelia-hide');
+    } else {
+      this.animator.addClass(this.element, 'aurelia-hide');
+    }
+  };
+
+  Allowed.prototype.bind = function bind(bindingContext) {
+    this.valueChanged(this.value);
+  };
+
+  return Allowed;
+}()) || _class2) || _class2);

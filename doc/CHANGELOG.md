@@ -1,3 +1,8 @@
+<a name="1.0.0"></a>
+# [1.0.0](https://github.com/SpoonX/aurelia-acl/compare/0.0.2...v1.0.0) (2017-06-01)
+
+
+
 <a name="0.0.2"></a>
 # 0.0.2
 

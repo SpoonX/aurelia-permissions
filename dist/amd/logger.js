@@ -7,5 +7,6 @@ define(['exports', 'aurelia-logging'], function (exports, _aureliaLogging) {
   exports.logger = undefined;
 
   var logger = (0, _aureliaLogging.getLogger)('aurelia-acl');
+
   exports.logger = logger;
 });

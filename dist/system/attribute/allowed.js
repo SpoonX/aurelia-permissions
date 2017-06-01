@@ -5,11 +5,7 @@ System.register(['aurelia-dependency-injection', 'aurelia-templating', 'aurelia-
 
   var inject, Optional, customAttribute, Animator, DOM, Acl, _dec, _dec2, _class, Allowed;
 
-  function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
-    }
-  }
+  
 
   return {
     setters: [function (_aureliaDependencyInjection) {
@@ -26,7 +22,7 @@ System.register(['aurelia-dependency-injection', 'aurelia-templating', 'aurelia-
     execute: function () {
       _export('Allowed', Allowed = (_dec = customAttribute('allowed'), _dec2 = inject(DOM.Element, Animator, Optional.of(DOM.boundary, true), Acl), _dec(_class = _dec2(_class = function () {
         function Allowed(element, animator, domBoundary, acl) {
-          _classCallCheck(this, Allowed);
+          
 
           this.acl = acl;
           this.element = element;
