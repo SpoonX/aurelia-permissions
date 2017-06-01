@@ -21,8 +21,8 @@ module.exports = {
      * useTypeScriptForDTS: false,
      */
 
-    /* Imports to append to the import block of the main file. 
-     * Add here eg. non-concated local imports in the main file as they will 
+    /* Imports to append to the import block of the main file.
+     * Add here eg. non-concated local imports in the main file as they will
      * get removed during the build process (ValueConverters, CustomElements).
      *
      * importsToAdd: ["import {AssociationSelect} from './association-select';"],
@@ -37,7 +37,7 @@ module.exports = {
     /* other resources that need to get copied keeping their path
      * resources: appRoot + '{** / *.css,** / *.html}',
      */
-     resources: appRoot + '{**/*.css,**/*.html}',
+     resources: appRoot + '{**/*.css,**/*.html,**/*.js}',
 
     /* imports that are only used internally, eg 'extend'. no need to d.ts export them
      *
