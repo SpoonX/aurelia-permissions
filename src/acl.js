@@ -1,6 +1,10 @@
 export class Acl {
   permissions = {};
 
+  constructor() {
+    this.isAllowed = this.isAllowed.bind(this);
+  }
+
   /**
    * Set the permissions object with new permissions
    *
