@@ -1,32 +1,33 @@
-# Configure
+## Configuration
 
-It is possible to configure the aurelia acl in your configurations. You can
-either get access to the `aclManager` or pass an object to set the privileges
-that way.
+You can configure your app permissions statically or dynamically.
+
+### Statically, in your `main.js`
+
+#### Passing in an object literal
 
 ```js
-
-/* ... */
-
-  .plugin('aurelia-acl', acl => {
-
-    acl.permit('user', 'swim');
-
-    acl.permit('admin', 'fly');
-
-  })
-
-/* ... */
-
+aurelia.use
+   .plugin('aurelia-acl', {
+     chat      : ['read', 'post'],
+     statistics: true // has access to all statistics
+   });
 ```
 
-Passing a simple javascript object is also a possibility
+#### Chaining `.permit()`
 
 ```js
+aurelia.use
+   .plugin('aurelia-acl', acl => {
+     acl.permit('chat', ['read', 'post'])
+       .permit('statistics', true);
+   });
+```
 
-  .plugin('aurelia-acl', {
-    user: ['swim'],
-    admin: ['fly'],
-  });
+### Dynamically, in your `app.js`
 
+```js
+userRequest.get('permissions').then(permissions => {
+  this.acl.setPermissions(permissions);
+});
 ```

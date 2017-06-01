@@ -1,8 +1,8 @@
 # Permissions
 
-A permission in aurelia acl is represented using strings arrays and objects.
+A permission in aurelia-acl can be set using strings, arrays or objects.
 The idea is to have a flexible way of granting, revoking and checking for
-permissions. Aurelia acl support *nested* permissions. Meaning one can put
+permissions. Aurelia acl support *nested* permissions, meaning one can put
 objects or strings in arrays and arrays in object's properties. This leaves it
 up to you to choose what best fits your project's needs.
 
@@ -42,12 +42,8 @@ This array is normalized to the same shape as the example above.
 
 ## String
 
-If nesting is not your thing and you would like to keep things really flat and
-simple, you should just use strings. `acl.permit('messages')` to grant messages
-permissions.
+You can also use strings, if you prefer not to nest your permissions.
 
 ```js
-
 let userPermissions = 'messages';
-
 ```

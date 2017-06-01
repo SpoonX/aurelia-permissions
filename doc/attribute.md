@@ -1,32 +1,27 @@
-# Attr: Allowed
+# Custom Attribute: allowed
 
-The allowed attribute enables developers to show or hide an element based on
-the permissions of the user.
+The `allowed` attribute can be used to show or hide an element based on the user's permission directly on the
+targeted element.
 
-Imagine i'm making a tool that can be used by different types of users. We have
-the `customer` and `accountant`. We can all agree that a customer should not
-see the same as an accountant. Let's define some permissions first.
+Imagine a tool that can be used by different types of users. For this example, we have a `customer` and a `accountant`.
+We don't want a customer to have the same access level as an accountant, so we define some basic permissions:
 
 ```js
-
   ajax.get( '/user', user => {
-    acl.permit('user', 'messages');
-    canSeeStatistics(user) && acl.permit('user', 'statistics')
+    acl.permit('user', 'products');
+
+    if (user.type === 'accountant') {
+      acl.permit('user', 'statistics');
+    }
   });
-
-  function canSeeStatistics(user) {
-    return (user.type === 'accountant');
-  }
-
 ```
 
-And using a simple string to describe the required permission.
+With the permissions set, we can use the `allowed` attribute to show only what the user has permission to access.
 
 ```html
-  <messages allowed="{user: 'messages'}'"></messages>
+  <products allowed="{user: 'products'}'"></products>
 
   <statistics allowed="{user: 'statistics'}"></statistics>
 ```
 
-If all is well the accountant does get to see the statistics and other users do
-not.
+If the permissions were correctly set, only an accountant will be able to see the statistics.
